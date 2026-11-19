@@ -3,23 +3,67 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GTA VI trophy checklist</title>
+<title>Vice Trophy Guide — GTA VI (PS5)</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <h1>GTA VI trophy checklist</h1>
-  <p id="progress">0 of 55 earned</p>
+<header class="hero">
+  <div>
+    <p class="kicker">Grand Theft Auto VI · PlayStation 5</p>
+    <h1>VICE TROPHY GUIDE</h1>
+    <p class="sub">All 55 trophies — official names, descriptions and grades, a guide for each one, and a tracker that remembers what you have earned.</p>
+  </div>
+  <div class="progress-card">
+    <p class="progress-line"><strong id="progress">0 of 55 earned</strong> · <span id="percent">0%</span> to platinum</p>
+    <div class="bar"><div id="barfill"></div></div>
+    <p class="grade-counts" id="gradeCounts"></p>
+  </div>
 </header>
-<div class="controls">
-  <label>Grade <select id="grade"><option value="all">All</option><option value="platinum">Platinum</option><option value="gold">Gold</option><option value="silver">Silver</option><option value="bronze">Bronze</option></select></label>
+
+<section class="controls" aria-label="Filters and progress tools">
+  <label class="search">Search <input id="search" type="search" placeholder="trophy name or word…" autocomplete="off"></label>
+  <label>Grade
+    <select id="grade">
+      <option value="all">All grades</option>
+      <option value="platinum">Platinum</option>
+      <option value="gold">Gold</option>
+      <option value="silver">Silver</option>
+      <option value="bronze">Bronze</option>
+    </select>
+  </label>
+  <label>Status
+    <select id="status">
+      <option value="all">All trophies</option>
+      <option value="earned">Earned</option>
+      <option value="remaining">Still to earn</option>
+    </select>
+  </label>
+  <label class="check"><input id="missableOnly" type="checkbox"> Choice trophies only</label>
+  <label class="check"><input id="spoiler" type="checkbox" checked> Hide story spoilers</label>
   <button id="export" type="button">Export progress</button>
   <label class="import">Import progress <input id="import" type="file" accept="application/json"></label>
-</div>
-<table>
-  <thead><tr><th>Earned</th><th>Trophy</th><th>Grade</th><th>How to get it</th></tr></thead>
-  <tbody id="rows"></tbody>
-</table>
+</section>
+
+<section aria-label="Roadmap to the platinum">
+  <h2>Roadmap to the platinum</h2>
+  <p class="hint">Eight stages, in order. Each stage shows how many of its trophies you have earned.</p>
+  <div class="roadmap" id="roadmap"></div>
+</section>
+
+<main class="layout">
+  <section aria-label="Trophy checklist">
+    <h2>Checklist <span id="shownCount" class="shown"></span></h2>
+    <div id="list" class="list"></div>
+  </section>
+  <aside class="detail" id="detail" aria-label="Selected trophy guide">
+    <p class="detail-empty">Pick a trophy to see its full guide, its source and whether it is tied to a story choice.</p>
+  </aside>
+</main>
+
+<footer>
+  <p><strong>Sources.</strong> Trophy names, descriptions and grades: the official list as published by PlayStation, via the Exophase GTA VI trophy list (exophase.com/game/grand-theft-auto-vi-psn/trophies), checked 2026-11-19. Every guide is written in our own words for this entry and names its source beside it. This guide is unofficial and not affiliated with Rockstar Games; no Rockstar artwork or logos are used.</p>
+  <p>Progress is saved in your browser (localStorage). Export it before clearing browser data — import the file to get it back.</p>
+</footer>
 <script type="module" src="app.js"></script>
 </body>
 </html>
